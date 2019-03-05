@@ -74,6 +74,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     @objc func preferencesWindow() {
+        NSApp.activate(ignoringOtherApps: true)
         settingWinC.window!.makeKeyAndOrderFront(self)
         settingWinC.showWindow(self)
     }
