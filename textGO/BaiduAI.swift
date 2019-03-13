@@ -28,6 +28,7 @@ class BaiduAI {
     private var tryCount: Int = 0
     private var ocrUrl = OcrUrl.accurate
     private var _baiduParams: [String: String]? = [String: String]()
+    
     var baiduParams: [String: String]? {
         get {
             if UserDefaults.standard.dictionary(forKey: "baiduAIParams") == nil {
@@ -83,7 +84,7 @@ class BaiduAI {
     func ocr(_ imgData: NSData, callback: @escaping ((String?, (ErrorType, String)?) -> Void)) {
         
         if accessToken == nil {
-            return
+            updateAccessToken()
         }
         
         let session = URLSession(configuration: .default)

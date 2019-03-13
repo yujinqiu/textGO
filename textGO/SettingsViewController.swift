@@ -14,6 +14,7 @@ class SettingsViewController: NSViewController {
     @IBOutlet weak var apiKeyTextField: NSTextField!
     @IBOutlet weak var secretKeyFeild: NSTextField!
     
+    
     override func viewDidLoad() {
         
         let visualEffect = self.view as! NSVisualEffectView
@@ -27,7 +28,7 @@ class SettingsViewController: NSViewController {
         resetKeyData(self)
     }
     
-    @IBAction func resetKeyData(_ sender: Any) {
+    func resetKeyData(_ sender: Any) {
         let baiduAI = BaiduAI()
         apiKeyTextField.stringValue = baiduAI.apiKey!
         secretKeyFeild.stringValue = baiduAI.secretKey!
